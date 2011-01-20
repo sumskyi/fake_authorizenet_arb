@@ -1,5 +1,14 @@
 FakeAuthorizeNet::Application.routes.draw do
-  resources :subscriptions
+
+  get "api/gateway"
+
+  resources :subscriptions do
+    resources :planned_responces
+  end
+
+  #constraints(:accept => 'application/xml') do
+    match '/xml/v1/request.api' => 'api#gateway'
+  #end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

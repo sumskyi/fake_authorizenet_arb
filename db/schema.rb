@@ -10,7 +10,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110120145100) do
+ActiveRecord::Schema.define(:version => 20110120162052) do
+
+  create_table "planned_responces", :force => true do |t|
+    t.integer  "subscription_id"
+    t.string   "status"
+    t.string   "code"
+    t.string   "text"
+    t.string   "refid"
+    t.date     "responce_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "subscriptions", :force => true do |t|
     t.integer  "subscription_id"
