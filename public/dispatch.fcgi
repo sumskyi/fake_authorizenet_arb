@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 
-require_relative '../config/environment'
+require File.expand_path('./config/environment')
 
 class Rack::PathInfoRewriter
   def initialize(app)
