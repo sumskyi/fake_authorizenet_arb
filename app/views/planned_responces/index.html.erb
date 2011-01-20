@@ -1,0 +1,31 @@
+<h1>Listing planned_responces</h1>
+
+<table>
+  <tr>
+    <th>Status</th>
+    <th>Code</th>
+    <th>Text</th>
+    <th>Refid</th>
+    <th>Responce at</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @planned_responces.each do |planned_responce| %>
+  <tr>
+    <td><%= planned_responce.status %></td>
+    <td><%= planned_responce.code %></td>
+    <td><%= planned_responce.text %></td>
+    <td><%= planned_responce.refid %></td>
+    <td><%= planned_responce.responce_at %></td>
+    <td><%= link_to 'Show', [planned_responce.subscription, planned_responce] %></td>
+    <td><%= link_to 'Edit', edit_subscription_planned_responce_path(planned_responce.subscription, planned_responce) %></td>
+    <td><%= link_to 'Destroy', [planned_responce.subscription, planned_responce], :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Planned responce', new_subscription_planned_responce_path(params[:subscription_id]) %>

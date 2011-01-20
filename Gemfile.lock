@@ -42,6 +42,7 @@ GEM
     mocha (0.9.10)
       rake
     mysql2 (0.2.6)
+    nested_scaffold (0.1.0)
     nifty-generators (0.4.4)
     polyglot (0.3.1)
     rack (1.2.1)
@@ -74,5 +75,6 @@ PLATFORMS
 DEPENDENCIES
   mocha
   mysql2
+  nested_scaffold
   nifty-generators
   rails (= 3.0.3)

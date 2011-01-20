@@ -22,6 +22,7 @@
       <td><%= link_to "Show", subscription %></td>
       <td><%= link_to "Edit", edit_subscription_path(subscription) %></td>
       <td><%= link_to "Destroy", subscription, :confirm => 'Are you sure?', :method => :delete %></td>
+      <td><%= link_to "Planned Responces", subscription_planned_responces_path(subscription) %></td>
     </tr>
   <% end %>
 </table>

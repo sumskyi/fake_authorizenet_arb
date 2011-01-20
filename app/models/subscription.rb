@@ -1,3 +1,4 @@
 class Subscription < ActiveRecord::Base
-    attr_accessible :subscription_id, :status, :start_date, :amount_cents, :interval_length, :interval_unit, :occurences
+  attr_accessible :subscription_id, :status, :start_date, :amount_cents, :interval_length, :interval_unit, :occurences
+  has_many :planned_responces
 end

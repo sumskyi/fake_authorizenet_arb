@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Status:</b>
+  <%= @planned_responce.status %>
+</p>
+
+<p>
+  <b>Code:</b>
+  <%= @planned_responce.code %>
+</p>
+
+<p>
+  <b>Text:</b>
+  <%= @planned_responce.text %>
+</p>
+
+<p>
+  <b>Refid:</b>
+  <%= @planned_responce.refid %>
+</p>
+
+<p>
+  <b>Responce at:</b>
+  <%= @planned_responce.responce_at %>
+</p>
+
+
+<%= link_to 'Edit', edit_subscription_planned_responce_path(@planned_responce.subscription, @planned_responce) %> |
+<%= link_to 'Back', subscription_planned_responces_path(@planned_responce.subscription) %>

@@ -32,5 +32,6 @@
 <p>
   <%= link_to "Edit", edit_subscription_path(@subscription) %> |
   <%= link_to "Destroy", @subscription, :confirm => 'Are you sure?', :method => :delete %> |
-  <%= link_to "View All", subscriptions_path %>
+  <%= link_to "View All", subscriptions_path %> |
+  <%= link_to "Planned Responces", subscription_planned_responces_path(@subscription) %>
 </p>
