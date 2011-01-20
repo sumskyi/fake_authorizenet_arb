@@ -29,3 +29,8 @@ gem 'mysql2'
 # group :development, :test do
 #   gem 'webrat'
 # end
+
+group :development do
+  gem "nifty-generators"
+end
+gem "mocha", :group => :test

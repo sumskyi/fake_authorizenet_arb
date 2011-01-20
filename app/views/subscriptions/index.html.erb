@@ -1,0 +1,29 @@
+<% title "Subscriptions" %>
+
+<table>
+  <tr>
+    <th>Subscription</th>
+    <th>Status</th>
+    <th>Start Date</th>
+    <th>Amount Cents</th>
+    <th>Interval Length</th>
+    <th>Interval Unit</th>
+    <th>Occurences</th>
+  </tr>
+  <% for subscription in @subscriptions %>
+    <tr>
+      <td><%= subscription.subscription_id %></td>
+      <td><%= subscription.status %></td>
+      <td><%= subscription.start_date %></td>
+      <td><%= subscription.amount_cents %></td>
+      <td><%= subscription.interval_length %></td>
+      <td><%= subscription.interval_unit %></td>
+      <td><%= subscription.occurences %></td>
+      <td><%= link_to "Show", subscription %></td>
+      <td><%= link_to "Edit", edit_subscription_path(subscription) %></td>
+      <td><%= link_to "Destroy", subscription, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Subscription", new_subscription_path(subscription) %></p>

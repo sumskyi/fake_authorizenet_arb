@@ -1,0 +1,36 @@
+<% title "Subscription" %>
+
+<p>
+  <strong>Subscription:</strong>
+  <%= @subscription.subscription_id %>
+</p>
+<p>
+  <strong>Status:</strong>
+  <%= @subscription.status %>
+</p>
+<p>
+  <strong>Start Date:</strong>
+  <%= @subscription.start_date %>
+</p>
+<p>
+  <strong>Amount Cents:</strong>
+  <%= @subscription.amount_cents %>
+</p>
+<p>
+  <strong>Interval Length:</strong>
+  <%= @subscription.interval_length %>
+</p>
+<p>
+  <strong>Interval Unit:</strong>
+  <%= @subscription.interval_unit %>
+</p>
+<p>
+  <strong>Occurences:</strong>
+  <%= @subscription.occurences %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_subscription_path(@subscription) %> |
+  <%= link_to "Destroy", @subscription, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", subscriptions_path %>
+</p>

@@ -1,0 +1,32 @@
+<%= form_for @subscription do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :subscription_id %><br />
+    <%= f.text_field :subscription_id %>
+  </p>
+  <p>
+    <%= f.label :status %><br />
+    <%= f.text_field :status %>
+  </p>
+  <p>
+    <%= f.label :start_date %><br />
+    <%= f.date_select :start_date %>
+  </p>
+  <p>
+    <%= f.label :amount_cents %><br />
+    <%= f.text_field :amount_cents %>
+  </p>
+  <p>
+    <%= f.label :interval_length %><br />
+    <%= f.text_field :interval_length %>
+  </p>
+  <p>
+    <%= f.label :interval_unit %><br />
+    <%= f.text_field :interval_unit %>
+  </p>
+  <p>
+    <%= f.label :occurences %><br />
+    <%= f.text_field :occurences %>
+  </p>
+  <p><%= f.submit %></p>
+<% end %>
