@@ -6,9 +6,12 @@ FakeAuthorizeNet::Application.routes.draw do
     resources :planned_responces
   end
 
-  #constraints(:accept => 'application/xml') do
-    match '/xml/v1/request.api' => 'api#gateway'
-  #end
+  constraints(:format => 'api', :path => '/xml/v1/request') do
+    match "*path" => 'api#create', :constraints => ParamsRouter::ARBCreateSubscriptionRequest.new,    :as => :arb_create
+    match "*path" => 'api#status', :constraints => ParamsRouter::ARBGetSubscriptionStatusRequest.new, :as => :arb_status
+    match "*path" => 'api#update', :constraints => ParamsRouter::ARBUpdateSubscriptionRequest.new,    :as => :arb_update
+    match "*path" => 'api#cancel', :constraints => ParamsRouter::ARBCancelSubscriptionRequest.new,    :as => :arb_cancel
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

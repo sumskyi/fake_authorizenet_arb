@@ -12,6 +12,7 @@
       <% flash.each do |name, msg| %>
         <%= content_tag :div, msg, :id => "flash_#{name}" %>
       <% end %>
+      <%= link_to 'Home', root_url %>
       <%= content_tag :h1, yield(:title) if show_title? %>
       <%= yield %>
     </div>
