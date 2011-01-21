@@ -1,4 +1,4 @@
-Fake Authorize.net ARB for testing aims
+Fake Authorize.net ARB site for testing activemerchant based payments
 
 1) point api.authorize.net to your fake installation
 
