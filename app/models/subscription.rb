@@ -1,5 +1,5 @@
 class Subscription < ActiveRecord::Base
-  before_save :set_subscription
+  before_create :set_subscription
 
   attr_accessible :subscription_id, :status, :start_date, :amount_cents, :interval_length, :interval_unit, :occurences
 
