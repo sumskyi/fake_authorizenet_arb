@@ -3,6 +3,7 @@ class ApiController < ApplicationController
 
   before_filter :load_api_call_params
   before_filter :load_subscription, :except => :create
+  after_filter  :log_xml
 
 
   # sample @api_call_params
@@ -49,9 +50,8 @@ class ApiController < ApplicationController
     else
       resp = error_response
     end
-    xml = resp.to_xml(:root => 'ARBCreateSubscriptionResponse')
-    logger.info xml
-    render :xml => xml
+    @xml = resp.to_xml(:root => 'ARBCreateSubscriptionResponse')
+    render :xml => @xml
   end
 
 
@@ -77,9 +77,8 @@ class ApiController < ApplicationController
         :occurences => @api_call_params[:subscription][:paymentSchedule][:totalOccurrences]
       )
     end
-    xml = resp.to_xml(:root => 'ARBUpdateSubscriptionRequest')
-    logger.info xml
-    render :xml => xml
+    @xml = resp.to_xml(:root => 'ARBUpdateSubscriptionRequest')
+    render :xml => @xml
   end
 
   #merchantAuthentication:
@@ -95,9 +94,8 @@ class ApiController < ApplicationController
         :status => @current_responce.status
       })
     end
-    xml = resp.to_xml(:root => 'ARBGetSubscriptionStatusResponse')
-    logger.info xml
-    render :xml => xml
+    @xml = resp.to_xml(:root => 'ARBGetSubscriptionStatusResponse')
+    render :xml => @xml
   end
 
   #merchantAuthentication:
@@ -113,9 +111,8 @@ class ApiController < ApplicationController
       @subscription.cancel! if @current_responce
       resp = base_response
     end
-    xml = resp.to_xml(:root => 'ARBUpdateSuARBCancelSubscriptionResponse')
-    logger.info xml
-    render :xml => xml
+    @xml = resp.to_xml(:root => 'ARBUpdateSuARBCancelSubscriptionResponse')
+    render :xml => @xml
   end
 
 protected
@@ -165,6 +162,10 @@ protected
   def load_subscription
     @subscription = Subscription.find_by_subscription_id(@api_call_params[:subscriptionId])
     @current_responce = @subscription.planned_responces.current if @subscription
+  end
+
+  def log_xml
+    logger.info @xml
   end
 
 end
