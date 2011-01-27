@@ -114,7 +114,7 @@ class ApiController < ApplicationController
       @subscription.cancel! if @current_responce
       resp = base_response
     end
-    @xml = resp.to_xml(:root => 'ARBUpdateSuARBCancelSubscriptionResponse')
+    @xml = resp.to_xml(:root => 'ARBCancelSubscriptionResponse')
     render :xml => @xml
   end
 
