@@ -76,8 +76,11 @@ class ApiController < ApplicationController
         :start_date => @api_call_params[:subscription][:paymentSchedule][:startDate],
         :occurences => @api_call_params[:subscription][:paymentSchedule][:totalOccurrences]
       )
+      resp = base_response.deep_merge({
+         :status => @current_responce.status
+      })
     end
-    @xml = resp.to_xml(:root => 'ARBUpdateSubscriptionRequest')
+    @xml = resp.to_xml(:root => 'ARBUpdateSubscriptionResponse')
     render :xml => @xml
   end
 
